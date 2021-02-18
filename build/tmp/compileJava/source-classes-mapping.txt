@@ -1,0 +1,62 @@
+com/anti_captcha/Api/NoCaptcha.java
+ com.anti_captcha.Api.NoCaptcha
+com/anti_captcha/Main.java
+ com.anti_captcha.Main
+com/anti_captcha/ApiResponse/TaskResultResponse.java
+ com.anti_captcha.ApiResponse.TaskResultResponse
+ com.anti_captcha.ApiResponse.TaskResultResponse$SolutionData
+ com.anti_captcha.ApiResponse.TaskResultResponse$StatusType
+com/anti_captcha/Api/RecaptchaV3EnterpriseProxyless.java
+ com.anti_captcha.Api.RecaptchaV3EnterpriseProxyless
+com/anti_captcha/ApiResponse/BalanceResponse.java
+ com.anti_captcha.ApiResponse.BalanceResponse
+com/anti_captcha/IAnticaptchaTaskProtocol.java
+ com.anti_captcha.IAnticaptchaTaskProtocol
+com/anti_captcha/Api/SquareCaptcha.java
+ com.anti_captcha.Api.SquareCaptcha
+com/anti_captcha/Api/ImageToText.java
+ com.anti_captcha.Api.ImageToText
+ com.anti_captcha.Api.ImageToText$NumericOption
+com/anti_captcha/ApiResponse/CreateTaskResponse.java
+ com.anti_captcha.ApiResponse.CreateTaskResponse
+com/anti_captcha/Http/HttpRequest.java
+ com.anti_captcha.Http.HttpRequest
+ com.anti_captcha.Http.HttpRequest$1
+ com.anti_captcha.Http.HttpRequest$2
+com/anti_captcha/Api/CustomCaptcha.java
+ com.anti_captcha.Api.CustomCaptcha
+com/anti_captcha/Helper/JsonHelper.java
+ com.anti_captcha.Helper.JsonHelper
+com/anti_captcha/Helper/DebugHelper.java
+ com.anti_captcha.Helper.DebugHelper
+ com.anti_captcha.Helper.DebugHelper$Type
+com/anti_captcha/Api/FunCaptcha.java
+ com.anti_captcha.Api.FunCaptcha
+com/anti_captcha/Api/RecaptchaV3Proxyless.java
+ com.anti_captcha.Api.RecaptchaV3Proxyless
+com/anti_captcha/Helper/HttpHelper.java
+ com.anti_captcha.Helper.HttpHelper
+ com.anti_captcha.Helper.HttpHelper$HttpsClientBuilderGiver
+ com.anti_captcha.Helper.HttpHelper$HttpsClientBuilderGiver$HttpsTrustManager
+ com.anti_captcha.Helper.HttpHelper$InputOutput
+com/anti_captcha/AnticaptchaBase.java
+ com.anti_captcha.AnticaptchaBase
+ com.anti_captcha.AnticaptchaBase$ApiMethod
+ com.anti_captcha.AnticaptchaBase$ProxyTypeOption
+ com.anti_captcha.AnticaptchaBase$SchemeType
+com/anti_captcha/Http/HttpResponse.java
+ com.anti_captcha.Http.HttpResponse
+com/anti_captcha/Api/RecaptchaV2Enterprise.java
+ com.anti_captcha.Api.RecaptchaV2Enterprise
+com/anti_captcha/Api/GeeTestProxyless.java
+ com.anti_captcha.Api.GeeTestProxyless
+com/anti_captcha/Api/RecaptchaV2EnterpriseProxyless.java
+ com.anti_captcha.Api.RecaptchaV2EnterpriseProxyless
+com/anti_captcha/Api/HCaptcha.java
+ com.anti_captcha.Api.HCaptcha
+com/anti_captcha/Helper/StringHelper.java
+ com.anti_captcha.Helper.StringHelper
+com/anti_captcha/Api/HCaptchaProxyless.java
+ com.anti_captcha.Api.HCaptchaProxyless
+com/anti_captcha/Api/NoCaptchaProxyless.java
+ com.anti_captcha.Api.NoCaptchaProxyless

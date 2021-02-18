@@ -1,0 +1,55 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+    id 'java'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.anti_captcha.Main'
+        )
+    }
+}
+
+group 'com.anti_captcha'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+    // https://mvnrepository.com/artifact/org.json/json
+    implementation group: 'org.json', name: 'json', version: '20201115'
+
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpmime
+    implementation group: 'org.apache.httpcomponents', name: 'httpmime', version: '4.5.13'
+
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore
+    implementation group: 'org.apache.httpcomponents', name: 'httpcore', version: '4.4.14'
+
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient-osgi
+    implementation group: 'org.apache.httpcomponents', name: 'httpclient-osgi', version: '4.5.13'
+
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient-cache
+    implementation group: 'org.apache.httpcomponents', name: 'httpclient-cache', version: '4.5.13'
+
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/fluent-hc
+    implementation group: 'org.apache.httpcomponents', name: 'fluent-hc', version: '4.5.13'
+
+    // https://mvnrepository.com/artifact/commons-logging/commons-logging
+    implementation group: 'commons-logging', name: 'commons-logging', version: '1.2'
+
+    // https://mvnrepository.com/artifact/commons-codec/commons-codec
+    implementation group: 'commons-codec', name: 'commons-codec', version: '1.9'
+
+    // https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api
+    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.4.0-b180830.0359'
+}
+
+test {
+    useJUnitPlatform()
+}
