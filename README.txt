@@ -1,17 +1,69 @@
-Download the full project (2.5 mb): https://yadi.sk/d/6V8NfwDe3EQ7z4
+# Anti-Captcha API
+This is a fork of [anti-captcha](https://github.com/AdminAnticaptcha/anticaptcha-java) to access the anti-captcha API in Java. The project has been converted to Gradle and has otherwise received only some minor changes compared to the original one. 
 
-You need Java 1.8 installed.
-This is an IntelliJ IDEA project and it should be compatible with Eclipse (but not tested).
+## Requirements
+**Note**: The project is tested and compiled with Java 11
 
-If you want to compile the project in console (tested on MacOS 10.11):
+### Gradle
+```java
+allprojects {
+    repositories {
+	...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+```java
+dependencies {
+    implementation 'com.github.JicuNull:anticaptcha-java:master-SNAPSHOT'
+}
+```
+Find more options here: **[Jitpack](https://jitpack.io/#JicuNull/anticaptcha-java)**
 
-1. Make sure you are using Java 1.8:
-$ javac -version
-if you installed Java 1.8 before, but previous command gives you "1.7", you need to switch it to 1.8:
-$ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+### Examples
+- Recaptcha V2 with Proxy
+```java
+    DebugHelper.setVerboseMode(true);
 
-2. Compile:
-$ javac -cp "libs/*" src/com/anti_captcha/AnticaptchaBase.java src/com/anti_captcha/Main.java src/com/anti_captcha/IAnticaptchaTaskProtocol.java src/com/anti_captcha/Api/ImageToText.java src/com/anti_captcha/Api/NoCaptcha.java src/com/anti_captcha/Api/NoCaptchaProxyless.java src/com/anti_captcha/ApiResponse/BalanceResponse.java src/com/anti_captcha/ApiResponse/CreateTaskResponse.java src/com/anti_captcha/ApiResponse/TaskResultResponse.java src/com/anti_captcha/Helper/DebugHelper.java src/com/anti_captcha/Helper/HttpHelper.java src/com/anti_captcha/Helper/JsonHelper.java src/com/anti_captcha/Helper/StringHelper.java src/com/anti_captcha/Http/HttpRequest.java src/com/anti_captcha/Http/HttpResponse.java
+    NoCaptcha api = new NoCaptcha();
+    api.setClientKey("1234567890123456789012");
+    api.setWebsiteUrl(new URL("http://http.myjino.ru/recaptcha/test-get.php"));
+    api.setWebsiteKey("6Lc_aCMTAAAAABx7u2W0WPXnVbI_v6ZdbM6rYf16");
+    api.setUserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 " +
+        "(KHTML, like Gecko) Chrome/52.0.2743.116");
 
-3. Run:
-$ java -cp "src:libs/*" com.anti_captcha.Main
+    // proxy access parameters
+    api.setProxyType(NoCaptcha.ProxyTypeOption.HTTP);
+    api.setProxyAddress("xx.xxx.xx.xx");
+    api.setProxyPort(8282);
+    api.setProxyLogin("login");
+    api.setProxyPassword("password");
+
+    if (!api.createTask()) {
+        DebugHelper.out("API v2 send failed. " + api.getErrorMessage(), DebugHelper.Type.ERROR);
+    } else if (!api.waitForResult()) {
+        DebugHelper.out("Could not solve the captcha.", DebugHelper.Type.ERROR);
+    } else {
+        DebugHelper.out("Result: " + api.getTaskSolution().getGRecaptchaResponse(), DebugHelper.Type.SUCCESS);
+    }
+```
+
+- HCaptcha Proxyless
+```java
+    DebugHelper.setVerboseMode(true);
+
+    HCaptchaProxyless api = new HCaptchaProxyless();
+    api.setClientKey("1234567890123456789012");
+    api.setWebsiteUrl(new URL("http://democaptcha.com/"));
+    api.setWebsiteKey("51829642-2cda-4b09-896c-594f89d700cc");
+
+    if (!api.createTask()) {
+        DebugHelper.out("API v2 send failed. " + api.getErrorMessage(), DebugHelper.Type.ERROR);
+    } else if (!api.waitForResult()) {
+        DebugHelper.out("Could not solve the captcha.", DebugHelper.Type.ERROR);
+    } else {
+        DebugHelper.out("Result: " + api.getTaskSolution().getGRecaptchaResponse(), DebugHelper.Type.SUCCESS);
+    }
+```
+
+**[More Examples](https://github.com/JicuNull/anticaptcha-java/blob/master/src/main/java/com/anti_captcha/Main.java)**
