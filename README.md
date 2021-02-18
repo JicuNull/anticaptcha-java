@@ -15,7 +15,7 @@ allprojects {
 ```
 ```java
 dependencies {
-    implementation 'com.github.JicuNull:anticaptcha-java:master-SNAPSHOT'
+    implementation 'com.github.JicuNull:anticaptcha-java:v1.0'
 }
 ```
 Find more options here: **[Jitpack](https://jitpack.io/#JicuNull/anticaptcha-java)**
